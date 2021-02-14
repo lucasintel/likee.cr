@@ -1,10 +1,10 @@
-![Unit Tests](https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg)
-![Integration Tests](https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg)
-[![GitHub release](https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release)](https://github.com/kandayo/likee.cr/releases)
-
 # Likee.cr
 
 Unofficial Likee API wrapper for Crystal.
+
+![Unit Tests](https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg)
+![Integration Tests](https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg)
+[![GitHub release](https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release)](https://github.com/kandayo/likee.cr/releases)
 
 ## Disclaimer
 
@@ -21,13 +21,14 @@ This is purely an educational proof of concept.
 dependencies:
  likee:
    github: kandayo/likee.cr
+   version: ~> 0.1.0
 ```
 
 2. Run `shards install`
 
 ## Usage
 
-For more examples, please refer to the [**documentation**](https://kandayo.github.io/likee.cr/docs/Likee.html).
+For more examples, please refer to the [**documentation**](https://kandayo.github.io/likee.cr/Likee.html).
 
 ```crystal
 require "likee"
