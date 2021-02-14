@@ -25,7 +25,7 @@ dependencies:
 
 ## Usage
 
-For more examples, please refer to the documentation.
+For more examples, please refer to the [**documentation**](https://kandayo.github.io/likee.cr/).
 
 ```crystal
 require "likee"
