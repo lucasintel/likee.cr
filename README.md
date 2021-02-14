@@ -15,11 +15,11 @@ This is purely an educational proof of concept.
 
 1. Add the dependency to your `shard.yml`:
 
-   ```yaml
-   dependencies:
-     likee:
-       github: kandayo/likee.cr
-   ```
+```yaml
+dependencies:
+ likee:
+   github: kandayo/likee.cr
+```
 
 2. Run `shards install`
 
@@ -29,11 +29,6 @@ For more examples, please refer to the documentation.
 
 ```crystal
 require "likee"
-
-Likee.configure(
-  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X) ... Safari/XXX.X.XX",
-  timeout: 3
-)
 
 Likee.get_user_post(user_id: "XXXXX")
 ```
