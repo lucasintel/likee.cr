@@ -71,7 +71,7 @@ describe Likee do
             status: 200, body: mocked_post_list
           )
 
-        collection = Likee.get_user_video(uid: "101", last_post_id: "100", count: 50)
+        collection = Likee.get_user_video(uid: "101", last_post_id: "", count: 50)
         collection.videos.size.should eq(2)
       end
     end

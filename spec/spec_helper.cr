@@ -3,6 +3,9 @@ require "webmock"
 
 require "../src/likee"
 
+# Clears all Webmock stubs and sets `Webmock.allow_net_connect` to false.
+Spec.before_each &->WebMock.reset
+
 def mocked_post : String
   File.read("#{mocks_path}/post.json")
 end
