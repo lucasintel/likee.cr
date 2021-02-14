@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.com/kandayo/likee.cr.svg?branch=main)](https://travis-ci.com/kandayo/likee.cr)
+![Unit Tests](https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg)
+![Integration Tests](https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg)
+[![GitHub release](https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release)](https://github.com/kandayo/likee.cr/releases)
 
 # Likee.cr
 
