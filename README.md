@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/kandayo/likee.cr.svg?branch=main)](https://travis-ci.com/kandayo/likee.cr)
+
 # Likee.cr
 
 Unofficial Likee API wrapper for Crystal.
