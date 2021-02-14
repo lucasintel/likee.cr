@@ -21,23 +21,23 @@ module Likee
     getter video_url : String
 
     def initialize(
-        @id,
-        @published_at,
-        @creator_id,
-        @sound_id,
-        @title,
-        @description,
-        @play_count,
-        @like_count,
-        @comment_count,
-        @share_count,
-        @height,
-        @width,
-        @thumbnail_url,
-        @website_url,
-        @share_url,
-        @video_url
-      )
+      @id,
+      @published_at,
+      @creator_id,
+      @sound_id,
+      @title,
+      @description,
+      @play_count,
+      @like_count,
+      @comment_count,
+      @share_count,
+      @height,
+      @width,
+      @thumbnail_url,
+      @website_url,
+      @share_url,
+      @video_url
+    )
     end
 
     # Extracts the URL to the video without the watermark.

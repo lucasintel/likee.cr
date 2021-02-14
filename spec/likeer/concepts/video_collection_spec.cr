@@ -22,7 +22,7 @@ describe Likee::VideoCollection do
             website_url: nil,
             share_url: nil,
             video_url: "http//likee.video/a_4.mp4"
-          )
+          ),
         ]
 
         subject = Likee::VideoCollection.new(videos: videos)

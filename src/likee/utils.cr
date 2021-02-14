@@ -17,7 +17,7 @@ module Likee
       "Macintosh; Intel Mac OS X 10_11_5",
       "Windows NT 10.0; Win64; x64",
       "Windows NT 10.0; WOW64",
-      "Windows NT 10.0"
+      "Windows NT 10.0",
     ]
 
     # Generates a random user agent string.
@@ -29,8 +29,8 @@ module Likee
       chrome_patch = (Random.rand(0..1) * 50) + 140
 
       "Mozilla/5.0 (#{os}) AppleWebKit/537.36 (KHTML, like Gecko) " \
-        "Chrome/#{chrome_major}.0.#{chrome_version}.#{chrome_patch} " \
-        "Safari/537.36"
+      "Chrome/#{chrome_major}.0.#{chrome_version}.#{chrome_patch} " \
+      "Safari/537.36"
     end
 
     # Generates a random user profile url.
