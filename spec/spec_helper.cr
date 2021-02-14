@@ -1,4 +1,6 @@
 require "spec"
+require "webmock"
+
 require "../src/likee"
 
 def mocked_post : String

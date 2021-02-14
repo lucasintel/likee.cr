@@ -4,16 +4,17 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.0">
-<meta name="crystal_docs.project_version" content="main-dev">
-<meta name="crystal_docs.project_name" content="likee">
+<meta name="crystal_docs.project_version" content="0.1.0">
+<meta name="crystal_docs.project_name" content="Likee">
 
 
+    <link rel="canonical" href="https://kandayo.github.io/likee.cr/Likee/Video.html">
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/doc.js"></script>
 
-  <meta name="repository-name" content="likee">
-  <title>Likee::Video - likee main-dev</title>
+  <meta name="repository-name" content="Likee">
+  <title>Likee::Video - Likee 0.1.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -34,12 +35,12 @@
     <div class="project-summary">
       <h1 class="project-name">
         <a href="../index.html">
-          likee
+          Likee
         </a>
       </h1>
 
       <span class="project-version">
-        main-dev
+        0.1.0
       </span>
     </div>
   </div>
@@ -51,28 +52,18 @@
   <div class="types-list">
     <ul>
   
-  <li class="parent open current" data-id="likee/Likee" data-name="likee">
+  <li class="parent open current" data-id="Likee/Likee" data-name="likee">
       <a href="../Likee.html">Likee</a>
       
         <ul>
   
-  <li class=" " data-id="likee/Likee/Client" data-name="likee::client">
+  <li class="parent " data-id="Likee/Likee/Client" data-name="likee::client">
       <a href="../Likee/Client.html">Client</a>
-      
-    </li>
-  
-  <li class="parent " data-id="likee/Likee/Mapping" data-name="likee::mapping">
-      <a href="../Likee/Mapping.html">Mapping</a>
       
         <ul>
   
-  <li class=" " data-id="likee/Likee/Mapping/Post" data-name="likee::mapping::post">
-      <a href="../Likee/Mapping/Post.html">Post</a>
-      
-    </li>
-  
-  <li class=" " data-id="likee/Likee/Mapping/PostList" data-name="likee::mapping::postlist">
-      <a href="../Likee/Mapping/PostList.html">PostList</a>
+  <li class=" " data-id="Likee/Likee/Client/ClientError" data-name="likee::client::clienterror">
+      <a href="../Likee/Client/ClientError.html">ClientError</a>
       
     </li>
   
@@ -81,17 +72,17 @@
       
     </li>
   
-  <li class=" " data-id="likee/Likee/Utils" data-name="likee::utils">
+  <li class=" " data-id="Likee/Likee/Utils" data-name="likee::utils">
       <a href="../Likee/Utils.html">Utils</a>
       
     </li>
   
-  <li class=" current" data-id="likee/Likee/Video" data-name="likee::video">
+  <li class=" current" data-id="Likee/Likee/Video" data-name="likee::video">
       <a href="../Likee/Video.html">Video</a>
       
     </li>
   
-  <li class=" " data-id="likee/Likee/VideoCollection" data-name="likee::videocollection">
+  <li class=" " data-id="Likee/Likee/VideoCollection" data-name="likee::videocollection">
       <a href="../Likee/VideoCollection.html">VideoCollection</a>
       
     </li>
@@ -129,11 +120,30 @@
     Overview
   </h2>
 
-  <p>A <code><a href="../Likee/Video.html">Video</a></code> represents a video or post returned by an API call.</p>
+  <p>The <code><a href="../Likee/Video.html">Video</a></code> entity represents a Likee video.</p>
+
+<p>The JSON payload returned by the API call is parsed and transformed to a
+stable interface.</p>
 
 
 
 
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">JSON::Serializable</li>
+    
+      <li class="other-type">JSON::Serializable::Unmapped</li>
+    
+  </ul>
 
 
 
@@ -156,25 +166,6 @@
 
 
 
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-      Constant Summary
-    </h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="WATERMARK_SUFFIX">
-        <strong>WATERMARK_SUFFIX</strong> = <code><span class="s">&quot;_4&quot;</span></code>
-      </dt>
-      
-    
-  </dl>
-
 
 
   <h2>
@@ -188,7 +179,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(id,published_at,creator_id,sound_id,title,description,play_count,like_count,comment_count,share_count,height,width,thumbnail_url,website_url,share_url,video_url)-class-method" class="signature"><strong>.new</strong>(id, published_at, creator_id, sound_id, title, description, play_count, like_count, comment_count, share_count, height, width, thumbnail_url, website_url, share_url, video_url)</a>
+        <a href="#new(pull:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
         
       </li>
     
@@ -209,17 +200,51 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#comment_count:UInt32?-instance-method" class="signature"><strong>#comment_count</strong> : UInt32?</a>
+        <a href="#caption:String?-instance-method" class="signature"><strong>#caption</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the video caption ("msgText").</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#creator_id:String?-instance-method" class="signature"><strong>#creator_id</strong> : String?</a>
+        <a href="#comment_count:UInt32-instance-method" class="signature"><strong>#comment_count</strong> : UInt32</a>
+        
+          <div class="summary"><p>Returns the video comment count ("commentCount").</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#description:String?-instance-method" class="signature"><strong>#description</strong> : String?</a>
+        <a href="#cover_url:String-instance-method" class="signature"><strong>#cover_url</strong> : String</a>
+        
+          <div class="summary"><p>Returns the video cover url ("coverUrl").</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#creator_avatar:String?-instance-method" class="signature"><strong>#creator_avatar</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the creator avatar ("avatar").</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#creator_id:String-instance-method" class="signature"><strong>#creator_id</strong> : String</a>
+        
+          <div class="summary"><p>Returns the creator id ("posterUid").</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#creator_nickname:String?-instance-method" class="signature"><strong>#creator_nickname</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the creator nickname ("nickname").</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#creator_username:String-instance-method" class="signature"><strong>#creator_username</strong> : String</a>
+        
+          <div class="summary"><p>Returns the creator username ("likeeId").</p></div>
         
       </li>
     
@@ -231,67 +256,86 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#height:UInt16?-instance-method" class="signature"><strong>#height</strong> : UInt16?</a>
+        <a href="#height:UInt16-instance-method" class="signature"><strong>#height</strong> : UInt16</a>
+        
+          <div class="summary"><p>Returns the video height ("videoHeight").</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#id:String-instance-method" class="signature"><strong>#id</strong> : String</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#like_count:UInt32?-instance-method" class="signature"><strong>#like_count</strong> : UInt32?</a>
+          <div class="summary"><p>Returns the video id ("postId").</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#play_count:UInt32?-instance-method" class="signature"><strong>#play_count</strong> : UInt32?</a>
+        <a href="#like_count:UInt32-instance-method" class="signature"><strong>#like_count</strong> : UInt32</a>
+        
+          <div class="summary"><p>Returns the video like count ("likeCount").</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#published_at:Time-instance-method" class="signature"><strong>#published_at</strong> : Time</a>
+        <a href="#music_id:String?-instance-method" class="signature"><strong>#music_id</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the video music id ("musicId").</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#share_count:UInt32?-instance-method" class="signature"><strong>#share_count</strong> : UInt32?</a>
+        <a href="#music_name:String?-instance-method" class="signature"><strong>#music_name</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the video music name ("musicName").</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#play_count:UInt32-instance-method" class="signature"><strong>#play_count</strong> : UInt32</a>
+        
+          <div class="summary"><p>Returns the video play count ("playCount").</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#share_count:UInt32-instance-method" class="signature"><strong>#share_count</strong> : UInt32</a>
+        
+          <div class="summary"><p>Returns the video share count ("shareCount").</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#share_url:String?-instance-method" class="signature"><strong>#share_url</strong> : String?</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#sound_id:String?-instance-method" class="signature"><strong>#sound_id</strong> : String?</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#thumbnail_url:String?-instance-method" class="signature"><strong>#thumbnail_url</strong> : String?</a>
+          <div class="summary"><p>Returns the video share url ("shareUrl").</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#title:String?-instance-method" class="signature"><strong>#title</strong> : String?</a>
         
+          <div class="summary"><p>Returns the video title ("title").</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#uploaded_at:Time-instance-method" class="signature"><strong>#uploaded_at</strong> : Time</a>
+        
+          <div class="summary"><p>Returns the video upload time ("postTime").</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#video_url:String-instance-method" class="signature"><strong>#video_url</strong> : String</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#website_url:String?-instance-method" class="signature"><strong>#website_url</strong> : String?</a>
+          <div class="summary"><p>Returns the video url ("videoUrl").</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#width:UInt16?-instance-method" class="signature"><strong>#width</strong> : UInt16?</a>
+        <a href="#width:UInt16-instance-method" class="signature"><strong>#width</strong> : UInt16</a>
+        
+          <div class="summary"><p>Returns the video width ("videoWidth").</p></div>
         
       </li>
     
@@ -302,6 +346,26 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
   
     
 
@@ -345,12 +409,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(id,published_at,creator_id,sound_id,title,description,play_count,like_count,comment_count,share_count,height,width,thumbnail_url,website_url,share_url,video_url)-class-method">
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(id, published_at, creator_id, sound_id, title, description, play_count, like_count, comment_count, share_count, height, width, thumbnail_url, website_url, share_url, video_url)
+        def self.<strong>new</strong>(pull : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(id,published_at,creator_id,sound_id,title,description,play_count,like_count,comment_count,share_count,height,width,thumbnail_url,website_url,share_url,video_url)-class-method">#</a>
+        <a class="method-permalink" href="#new(pull:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -373,13 +437,18 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="comment_count:UInt32?-instance-method">
+    <div class="entry-detail" id="caption:String?-instance-method">
       <div class="signature">
         
-        def <strong>comment_count</strong> : UInt32?
+        def <strong>caption</strong> : String?
 
-        <a class="method-permalink" href="#comment_count:UInt32?-instance-method">#</a>
+        <a class="method-permalink" href="#caption:String?-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video caption ("msgText"). Also known as description.</p>
+        </div>
       
       <br/>
       <div>
@@ -387,13 +456,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="creator_id:String?-instance-method">
+    <div class="entry-detail" id="comment_count:UInt32-instance-method">
       <div class="signature">
         
-        def <strong>creator_id</strong> : String?
+        def <strong>comment_count</strong> : UInt32
 
-        <a class="method-permalink" href="#creator_id:String?-instance-method">#</a>
+        <a class="method-permalink" href="#comment_count:UInt32-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video comment count ("commentCount").</p>
+        </div>
       
       <br/>
       <div>
@@ -401,13 +475,97 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="description:String?-instance-method">
+    <div class="entry-detail" id="cover_url:String-instance-method">
       <div class="signature">
         
-        def <strong>description</strong> : String?
+        def <strong>cover_url</strong> : String
 
-        <a class="method-permalink" href="#description:String?-instance-method">#</a>
+        <a class="method-permalink" href="#cover_url:String-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video cover url ("coverUrl"). Also known as video thumbnail.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="creator_avatar:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>creator_avatar</strong> : String?
+
+        <a class="method-permalink" href="#creator_avatar:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the creator avatar ("avatar").</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="creator_id:String-instance-method">
+      <div class="signature">
+        
+        def <strong>creator_id</strong> : String
+
+        <a class="method-permalink" href="#creator_id:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the creator id ("posterUid").</p>
+
+<p>Apparently, it is referred to as "uid" rather than "id". Must not be
+confused with "likeeId", which refers to the creator username.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="creator_nickname:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>creator_nickname</strong> : String?
+
+        <a class="method-permalink" href="#creator_nickname:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the creator nickname ("nickname").</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="creator_username:String-instance-method">
+      <div class="signature">
+        
+        def <strong>creator_username</strong> : String
+
+        <a class="method-permalink" href="#creator_username:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the creator username ("likeeId").</p>
+        </div>
       
       <br/>
       <div>
@@ -434,13 +592,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="height:UInt16?-instance-method">
+    <div class="entry-detail" id="height:UInt16-instance-method">
       <div class="signature">
         
-        def <strong>height</strong> : UInt16?
+        def <strong>height</strong> : UInt16
 
-        <a class="method-permalink" href="#height:UInt16?-instance-method">#</a>
+        <a class="method-permalink" href="#height:UInt16-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video height ("videoHeight").</p>
+        </div>
       
       <br/>
       <div>
@@ -456,19 +619,10 @@
         <a class="method-permalink" href="#id:String-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="like_count:UInt32?-instance-method">
-      <div class="signature">
-        
-        def <strong>like_count</strong> : UInt32?
-
-        <a class="method-permalink" href="#like_count:UInt32?-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>Returns the video id ("postId").</p>
+        </div>
       
       <br/>
       <div>
@@ -476,13 +630,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="play_count:UInt32?-instance-method">
+    <div class="entry-detail" id="like_count:UInt32-instance-method">
       <div class="signature">
         
-        def <strong>play_count</strong> : UInt32?
+        def <strong>like_count</strong> : UInt32
 
-        <a class="method-permalink" href="#play_count:UInt32?-instance-method">#</a>
+        <a class="method-permalink" href="#like_count:UInt32-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video like count ("likeCount").</p>
+        </div>
       
       <br/>
       <div>
@@ -490,13 +649,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="published_at:Time-instance-method">
+    <div class="entry-detail" id="music_id:String?-instance-method">
       <div class="signature">
         
-        def <strong>published_at</strong> : Time
+        def <strong>music_id</strong> : String?
 
-        <a class="method-permalink" href="#published_at:Time-instance-method">#</a>
+        <a class="method-permalink" href="#music_id:String?-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video music id ("musicId").</p>
+        </div>
       
       <br/>
       <div>
@@ -504,13 +668,56 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="share_count:UInt32?-instance-method">
+    <div class="entry-detail" id="music_name:String?-instance-method">
       <div class="signature">
         
-        def <strong>share_count</strong> : UInt32?
+        def <strong>music_name</strong> : String?
 
-        <a class="method-permalink" href="#share_count:UInt32?-instance-method">#</a>
+        <a class="method-permalink" href="#music_name:String?-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video music name ("musicName").</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="play_count:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>play_count</strong> : UInt32
+
+        <a class="method-permalink" href="#play_count:UInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video play count ("playCount").</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="share_count:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>share_count</strong> : UInt32
+
+        <a class="method-permalink" href="#share_count:UInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video share count ("shareCount").</p>
+        </div>
       
       <br/>
       <div>
@@ -526,33 +733,10 @@
         <a class="method-permalink" href="#share_url:String?-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="sound_id:String?-instance-method">
-      <div class="signature">
-        
-        def <strong>sound_id</strong> : String?
-
-        <a class="method-permalink" href="#sound_id:String?-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="thumbnail_url:String?-instance-method">
-      <div class="signature">
-        
-        def <strong>thumbnail_url</strong> : String?
-
-        <a class="method-permalink" href="#thumbnail_url:String?-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>Returns the video share url ("shareUrl").</p>
+        </div>
       
       <br/>
       <div>
@@ -568,6 +752,30 @@
         <a class="method-permalink" href="#title:String?-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Returns the video title ("title").</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="uploaded_at:Time-instance-method">
+      <div class="signature">
+        
+        def <strong>uploaded_at</strong> : Time
+
+        <a class="method-permalink" href="#uploaded_at:Time-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video upload time ("postTime").</p>
+        </div>
+      
       <br/>
       <div>
         
@@ -582,19 +790,10 @@
         <a class="method-permalink" href="#video_url:String-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="website_url:String?-instance-method">
-      <div class="signature">
-        
-        def <strong>website_url</strong> : String?
-
-        <a class="method-permalink" href="#website_url:String?-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>Returns the video url ("videoUrl").</p>
+        </div>
       
       <br/>
       <div>
@@ -602,13 +801,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="width:UInt16?-instance-method">
+    <div class="entry-detail" id="width:UInt16-instance-method">
       <div class="signature">
         
-        def <strong>width</strong> : UInt16?
+        def <strong>width</strong> : UInt16
 
-        <a class="method-permalink" href="#width:UInt16?-instance-method">#</a>
+        <a class="method-permalink" href="#width:UInt16-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the video width ("videoWidth").</p>
+        </div>
       
       <br/>
       <div>

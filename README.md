@@ -25,18 +25,13 @@ dependencies:
 
 ## Usage
 
-For more examples, please refer to the [**documentation**](https://kandayo.github.io/likee.cr/).
+For more examples, please refer to the [**documentation**](https://kandayo.github.io/likee.cr/docs/Likee.html).
 
 ```crystal
 require "likee"
 
-Likee.get_user_post(user_id: "XXXXX")
+Likee.get_user_video(uid: "101", last_post_id: "100", count: 100)
 ```
-
-## Endpoints
-
-- getUserVideo
-- getUserPost
 
 ## Contributing
 

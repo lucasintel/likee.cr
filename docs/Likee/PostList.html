@@ -8,13 +8,13 @@
 <meta name="crystal_docs.project_name" content="Likee">
 
 
-    <link rel="canonical" href="https://kandayo.github.io/likee.cr/Likee/VideoCollection.html">
+    <link rel="canonical" href="https://kandayo.github.io/likee.cr/Likee/PostList.html">
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="Likee">
-  <title>Likee::VideoCollection - Likee 0.1.0</title>
+  <title>Likee::PostList - Likee 0.1.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -57,18 +57,13 @@
       
         <ul>
   
-  <li class="parent " data-id="Likee/Likee/Client" data-name="likee::client">
+  <li class=" " data-id="Likee/Likee/Client" data-name="likee::client">
       <a href="../Likee/Client.html">Client</a>
-      
-        <ul>
-  
-  <li class=" " data-id="Likee/Likee/Client/ClientError" data-name="likee::client::clienterror">
-      <a href="../Likee/Client/ClientError.html">ClientError</a>
       
     </li>
   
-</ul>
-
+  <li class=" current" data-id="Likee/Likee/PostList" data-name="likee::postlist">
+      <a href="../Likee/PostList.html">PostList</a>
       
     </li>
   
@@ -79,11 +74,6 @@
   
   <li class=" " data-id="Likee/Likee/Video" data-name="likee::video">
       <a href="../Likee/Video.html">Video</a>
-      
-    </li>
-  
-  <li class=" current" data-id="Likee/Likee/VideoCollection" data-name="likee::videocollection">
-      <a href="../Likee/VideoCollection.html">VideoCollection</a>
       
     </li>
   
@@ -101,12 +91,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Likee::VideoCollection
+  <span class="kind">struct</span> Likee::PostList
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Likee/VideoCollection.html">Likee::VideoCollection</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Likee/PostList.html">Likee::PostList</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -120,10 +110,8 @@
     Overview
   </h2>
 
-  <p>The <code><a href="../Likee/VideoCollection.html">VideoCollection</a></code> entity represents a collection of <code><a href="../Likee/Video.html">Video</a></code>.</p>
-
-<p>The JSON payload returned by the API call is parsed and transformed to a
-stable interface.</p>
+  <p>The <code><a href="../Likee/PostList.html">PostList</a></code> struct defines how to parse a collection of posts returned
+from <em>getUserPost</em> endpoint.</p>
 
 
 
@@ -140,8 +128,6 @@ stable interface.</p>
   <ul class="other-types-list">
     
       <li class="other-type">JSON::Serializable</li>
-    
-      <li class="other-type">JSON::Serializable::Unmapped</li>
     
   </ul>
 
@@ -207,7 +193,7 @@ stable interface.</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#videos:Array(Video)-instance-method" class="signature"><strong>#videos</strong> : Array(Video)</a>
+        <a href="#videos:Array(Likee::Video)-instance-method" class="signature"><strong>#videos</strong> : Array(Likee::Video)</a>
         
       </li>
     
@@ -218,16 +204,6 @@ stable interface.</p>
 
 
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-
   
     
 
@@ -328,12 +304,12 @@ stable interface.</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="videos:Array(Video)-instance-method">
+    <div class="entry-detail" id="videos:Array(Likee::Video)-instance-method">
       <div class="signature">
         
-        def <strong>videos</strong> : Array(<a href="../Likee/Video.html">Video</a>)
+        def <strong>videos</strong> : Array(<a href="../Likee/Video.html">Likee::Video</a>)
 
-        <a class="method-permalink" href="#videos:Array(Video)-instance-method">#</a>
+        <a class="method-permalink" href="#videos:Array(Likee::Video)-instance-method">#</a>
       </div>
       
       <br/>

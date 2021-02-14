@@ -1,38 +1,33 @@
 require "http/client"
+
+require "./concepts/*"
+require "./client/*"
 require "./utils"
 
 module Likee
-  # The `Client` that consumes the Likee API.
   class Client
-    BASE_URL = "https://likee.video"
+    BASE_URL = "https://api.like-video.com"
+    GET_USER_VIDEO_PATH = "/likee-activity-flow-micro/videoApi/getUserVideo"
 
     def initialize(@client : HTTP::Client = build_client)
     end
 
-    # Fetches the posts of *user_id*. The parameters *last_post_id* and *count*
-    # may be used to paginate.
-    def get_user_post(user_id : String, last_post_id = nil, count = 30)
-      params = HTTP::Params.build do |url|
-        url.add("currentUrl", Utils.random_profile_url)
-        url.add("u", user_id)
-        url.add("last_postid", last_post_id)
-        url.add("count", count.to_s)
-      end
+    def get_user_video(uid : String, last_post_id : String = "", count = 30)
+      response_body = request(
+        GET_USER_VIDEO_PATH,
+        { uid: uid, lastPostId: last_post_id, count: count, tabType: 0 }.to_json
+      )
 
-      response_body = request("/live/share/getUserPost", params)
-
-      Likee::Mapping::PostList
-        .from_json(response_body)
-        .normalize
+      Likee::VideoCollection.from_json(response_body, root: "data")
     end
 
     private def request(endpoint : String, params : String) : String
-      endpoint += "?#{params}" if params
-      response = @client.get(endpoint)
+      response = @client.post(endpoint, body: params)
+      raise ClientError.new(response.status) unless response.success?
 
-      if response.status_code != 200
-        raise Exception.new("Likee responded with #{response.status_code}")
-      end
+      parsed_body = JSON.parse(response.body)
+      code = parsed_body["code"].as_i
+      raise ClientError.new(parsed_body) unless code.zero?
 
       response.body
     end
@@ -43,6 +38,10 @@ module Likee
 
       client.before_request do |request|
         request.headers["User-Agent"] = Utils.random_user_agent
+        request.headers["Referer"] = "https://likee.video/"
+        request.headers["Origin"] = "https://likee.video"
+        request.headers["Content-Type"] = "application/json"
+        request.headers["Accept"] = "application/json"
       end
 
       client

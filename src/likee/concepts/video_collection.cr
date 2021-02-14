@@ -1,19 +1,23 @@
+require "json"
 require "./video"
 
 module Likee
-  # A `VideoCollection` represents a collection of videos returned by an API
-  # call. The array of `Video` can be accessed with `#videos`.
+  # The `VideoCollection` entity represents a collection of `Video`.
+  #
+  # The JSON payload returned by the API call is parsed and transformed to a
+  # stable interface.
   struct VideoCollection
-    getter videos : Array(Video)
+    include JSON::Serializable
+    include JSON::Serializable::Unmapped
 
-    def initialize(@videos)
-    end
+    @[JSON::Field(key: "videoList")]
+    getter videos : Array(Video)
 
     # Returns the last video id, useful to paginate the user feed.
     def last_post_id : String?
-      return if @videos.none?
+      return if videos.none?
 
-      @videos.last.id
+      videos.last.id
     end
   end
 end

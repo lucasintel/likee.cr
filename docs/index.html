@@ -4,16 +4,17 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.0">
-<meta name="crystal_docs.project_version" content="main-dev">
-<meta name="crystal_docs.project_name" content="likee">
+<meta name="crystal_docs.project_version" content="0.1.0">
+<meta name="crystal_docs.project_name" content="Likee">
 
 
-
+    <link rel="canonical" href="https://kandayo.github.io/likee.cr">
+  
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
 
-  <meta name="repository-name" content="likee">
-  <title>likee main-dev</title>
+  <meta name="repository-name" content="Likee">
+  <title>Likee 0.1.0</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -34,12 +35,12 @@
     <div class="project-summary">
       <h1 class="project-name">
         <a href="index.html">
-          likee
+          Likee
         </a>
       </h1>
 
       <span class="project-version">
-        main-dev
+        0.1.0
       </span>
     </div>
   </div>
@@ -51,28 +52,18 @@
   <div class="types-list">
     <ul>
   
-  <li class="parent " data-id="likee/Likee" data-name="likee">
+  <li class="parent " data-id="Likee/Likee" data-name="likee">
       <a href="Likee.html">Likee</a>
       
         <ul>
   
-  <li class=" " data-id="likee/Likee/Client" data-name="likee::client">
+  <li class="parent " data-id="Likee/Likee/Client" data-name="likee::client">
       <a href="Likee/Client.html">Client</a>
-      
-    </li>
-  
-  <li class="parent " data-id="likee/Likee/Mapping" data-name="likee::mapping">
-      <a href="Likee/Mapping.html">Mapping</a>
       
         <ul>
   
-  <li class=" " data-id="likee/Likee/Mapping/Post" data-name="likee::mapping::post">
-      <a href="Likee/Mapping/Post.html">Post</a>
-      
-    </li>
-  
-  <li class=" " data-id="likee/Likee/Mapping/PostList" data-name="likee::mapping::postlist">
-      <a href="Likee/Mapping/PostList.html">PostList</a>
+  <li class=" " data-id="Likee/Likee/Client/ClientError" data-name="likee::client::clienterror">
+      <a href="Likee/Client/ClientError.html">ClientError</a>
       
     </li>
   
@@ -81,17 +72,17 @@
       
     </li>
   
-  <li class=" " data-id="likee/Likee/Utils" data-name="likee::utils">
+  <li class=" " data-id="Likee/Likee/Utils" data-name="likee::utils">
       <a href="Likee/Utils.html">Utils</a>
       
     </li>
   
-  <li class=" " data-id="likee/Likee/Video" data-name="likee::video">
+  <li class=" " data-id="Likee/Likee/Video" data-name="likee::video">
       <a href="Likee/Video.html">Video</a>
       
     </li>
   
-  <li class=" " data-id="likee/Likee/VideoCollection" data-name="likee::videocollection">
+  <li class=" " data-id="Likee/Likee/VideoCollection" data-name="likee::videocollection">
       <a href="Likee/VideoCollection.html">VideoCollection</a>
       
     </li>
@@ -149,19 +140,11 @@ Likee or any of its affiliates or subsidiaries.</p>
   </svg>
 </a>Usage</h2>
 
-<p>For more examples, please refer to the <a href="https://kandayo.github.io/likee.cr/"><strong>documentation</strong></a>.</p>
+<p>For more examples, please refer to the <a href="https://kandayo.github.io/likee.cr/docs/Likee.html"><strong>documentation</strong></a>.</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;likee&quot;</span>
 
-<span class="t">Likee</span>.get_user_post(user_id: <span class="s">&quot;XXXXX&quot;</span>)</code></pre>
-
-<h2><a id="endpoints" class="anchor" href="#endpoints">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Endpoints</h2>
-
-<ul><li>getUserVideo</li><li>getUserPost</li></ul>
+<span class="t">Likee</span>.get_user_video(uid: <span class="s">&quot;101&quot;</span>, last_post_id: <span class="s">&quot;100&quot;</span>, count: <span class="n">100</span>)</code></pre>
 
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">

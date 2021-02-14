@@ -5,3 +5,8 @@ authors:
   - kandayo <kdy@absolab.xyz>
 
 crystal: 0.36.1
+
+development_dependencies:
+  webmock:
+    github: manastech/webmock.cr
+    branch: master
