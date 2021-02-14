@@ -1,0 +1,28 @@
+name: Unit Tests
+
+on:
+  pull_request:
+
+  push:
+    branches:
+      - master
+
+jobs:
+  Lint:
+    steps:
+      - uses: actions/checkout@v2
+      - uses: oprypin/install-crystal@v1
+        with:
+          crystal: 0.36.1
+      - run: shards install
+      - run: crystal tool format --check
+
+  Specs:
+    needs: [Lint]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: oprypin/install-crystal@v1
+        with:
+          crystal: 0.36.1
+      - run: shards install
+      - run: crystal spec --tag ~integration
