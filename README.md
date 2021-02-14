@@ -16,7 +16,7 @@ This is purely an educational proof of concept.
    ```yaml
    dependencies:
      likee:
-       github: kandayo/likee
+       github: kandayo/likee.cr
    ```
 
 2. Run `shards install`
@@ -43,7 +43,7 @@ Likee.get_user_post(user_id: "XXXXX")
 
 ## Contributing
 
-1. Fork it (<https://github.com/kandayo/likee/fork>)
+1. Fork it (<https://github.com/kandayo/likee.cr/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
