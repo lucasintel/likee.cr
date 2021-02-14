@@ -6,7 +6,7 @@ describe Likee do
       WebMock
         .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo")
         .with(
-          body: { uid: "101", lastPostId: "100", count: 50, tabType: 0 }.to_json
+          body: {uid: "101", lastPostId: "100", count: 50, tabType: 0}.to_json
         )
         .to_return(
           status: 200, body: mocked_post_list
@@ -65,7 +65,7 @@ describe Likee do
         WebMock
           .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo")
           .with(
-            body: { uid: "101", lastPostId: "", count: 50, tabType: 0 }.to_json
+            body: {uid: "101", lastPostId: "", count: 50, tabType: 0}.to_json
           )
           .to_return(
             status: 200, body: mocked_post_list
