@@ -7,6 +7,9 @@ authors:
 crystal: 0.36.1
 
 development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.13.0
   webmock:
     github: manastech/webmock.cr
     branch: master
