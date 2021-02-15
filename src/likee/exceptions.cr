@@ -1,5 +1,5 @@
 require "http/client"
-require "./concepts/content_root"
+require "./concepts/likee_response"
 
 module Likee
   # This exception is raised when the HTTP status is not between 200 and 299.
@@ -19,13 +19,15 @@ module Likee
   # This exception is raised when the request is successful but the Likee API
   # returns a non-zero code.
   class APIError < Exception
-    getter content_root : ContentRoot
+    delegate :code, to: :likee_response
 
-    def initialize(@content_root)
+    getter likee_response : LikeeResponse
+
+    def initialize(@likee_response)
     end
 
     def message
-      "Likee API code #{content_root.code}: #{content_root.message}"
+      "Likee API code #{likee_response.code}: #{likee_response.message}"
     end
   end
 end

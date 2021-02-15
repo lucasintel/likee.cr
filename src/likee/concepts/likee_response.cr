@@ -1,8 +1,8 @@
 require "json"
 
 module Likee
-  # The `ContentRoot` structure represents a response from the Likee API.
-  struct ContentRoot
+  # The `LikeeResponse` structure represents a response from the Likee API.
+  struct LikeeResponse
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 

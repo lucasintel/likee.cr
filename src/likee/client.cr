@@ -29,10 +29,10 @@ module Likee
     private def parse_response!(response : HTTP::Client::Response) : String
       raise RequestFailedError.new(response) unless response.success?
 
-      content_root = ContentRoot.from_json(response.body)
-      raise APIError.new(content_root) unless content_root.success?
+      likee_response = LikeeResponse.from_json(response.body)
+      raise APIError.new(likee_response) unless likee_response.success?
 
-      content_root.json_unmapped["data"].to_json
+      likee_response.json_unmapped["data"].to_json
     end
 
     private def build_client : HTTP::Client
