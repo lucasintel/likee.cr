@@ -8,13 +8,13 @@
 <meta name="crystal_docs.project_name" content="Likee">
 
 
-    <link rel="canonical" href="https://likee.absolab.xyz/Likee/Utils.html">
+    <link rel="canonical" href="https://likee.absolab.xyz/Likee/APIError.html">
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="Likee">
-  <title>Likee::Utils - Likee 0.1.0</title>
+  <title>Likee::APIError - Likee 0.1.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -57,7 +57,7 @@
       
         <ul>
   
-  <li class=" " data-id="Likee/Likee/APIError" data-name="likee::apierror">
+  <li class=" current" data-id="Likee/Likee/APIError" data-name="likee::apierror">
       <a href="../Likee/APIError.html">APIError</a>
       
     </li>
@@ -77,7 +77,7 @@
       
     </li>
   
-  <li class=" current" data-id="Likee/Likee/Utils" data-name="likee::utils">
+  <li class=" " data-id="Likee/Likee/Utils" data-name="likee::utils">
       <a href="../Likee/Utils.html">Utils</a>
       
     </li>
@@ -101,10 +101,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> Likee::Utils
+  <span class="kind">class</span> Likee::APIError
 
 </h1>
 
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Likee/APIError.html">Likee::APIError</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -118,7 +120,8 @@
     Overview
   </h2>
 
-  <p>The <code><a href="../Likee/Utils.html">Utils</a></code> module defines multiple helpers.</p>
+  <p>This exception is raised when the request is successful but the Likee API
+returns a non-zero code.</p>
 
 
 
@@ -143,8 +146,8 @@
   </h2>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/utils.cr#L3" target="_blank">
-        likee/utils.cr
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L21" target="_blank">
+        likee/exceptions.cr
       </a>
     
     <br/>
@@ -152,50 +155,20 @@
 
 
 
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-      Constant Summary
-    </h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="OPERATING_SYSTEMS">
-        <strong>OPERATING_SYSTEMS</strong> = <code>[<span class="s">&quot;Macintosh; Intel Mac OS X 10_15_7&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_15_5&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_11_6&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_6_6&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_9_5&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_10_5&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_7_5&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_11_3&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_10_3&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_6_8&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_10_2&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_10_3&quot;</span>, <span class="s">&quot;Macintosh; Intel Mac OS X 10_11_5&quot;</span>, <span class="s">&quot;Windows NT 10.0; Win64; x64&quot;</span>, <span class="s">&quot;Windows NT 10.0; WOW64&quot;</span>, <span class="s">&quot;Windows NT 10.0&quot;</span>]</code>
-      </dt>
-      
-    
-  </dl>
-
-
-
 
 
   <h2>
-    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+    <a id="constructors" class="anchor" href="#constructors">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Class Method Summary
+    Constructors
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#random_profile_url:String-class-method" class="signature"><strong>.random_profile_url</strong> : String</a>
-        
-          <div class="summary"><p>Generates a random user profile url.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#random_user_agent:String-class-method" class="signature"><strong>.random_user_agent</strong> : String</a>
-        
-          <div class="summary"><p>Generates a random user agent string.</p></div>
+        <a href="#new(content_root)-class-method" class="signature"><strong>.new</strong>(content_root)</a>
         
       </li>
     
@@ -205,69 +178,138 @@
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#content_root:ContentRoot-instance-method" class="signature"><strong>#content_root</strong> : ContentRoot</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#message-instance-method" class="signature"><strong>#message</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
 
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(content_root)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(content_root)
+
+        <a class="method-permalink" href="#new(content_root)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
 
 
 
 
   <h2>
-    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Class Method Detail
+    Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="random_profile_url:String-class-method">
+    <div class="entry-detail" id="content_root:ContentRoot-instance-method">
       <div class="signature">
         
-        def self.<strong>random_profile_url</strong> : String
+        def <strong>content_root</strong> : <a href="../Likee/ContentRoot.html">ContentRoot</a>
 
-        <a class="method-permalink" href="#random_profile_url:String-class-method">#</a>
+        <a class="method-permalink" href="#content_root:ContentRoot-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Generates a random user profile url.</p>
-        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/utils.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="random_user_agent:String-class-method">
+    <div class="entry-detail" id="message-instance-method">
       <div class="signature">
         
-        def self.<strong>random_user_agent</strong> : String
+        def <strong>message</strong>
 
-        <a class="method-permalink" href="#random_user_agent:String-class-method">#</a>
+        <a class="method-permalink" href="#message-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Generates a random user agent string.
-Heavily inspired by https://github.com/drawrowfly/tiktok-scraper.</p>
-        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/utils.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 

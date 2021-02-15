@@ -8,7 +8,7 @@
 <meta name="crystal_docs.project_name" content="Likee">
 
 
-    <link rel="canonical" href="https://kandayo.github.io/likee.cr/Likee.html">
+    <link rel="canonical" href="https://likee.absolab.xyz/Likee.html">
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
@@ -57,18 +57,23 @@
       
         <ul>
   
-  <li class="parent " data-id="Likee/Likee/Client" data-name="likee::client">
-      <a href="Likee/Client.html">Client</a>
-      
-        <ul>
-  
-  <li class=" " data-id="Likee/Likee/Client/ClientError" data-name="likee::client::clienterror">
-      <a href="Likee/Client/ClientError.html">ClientError</a>
+  <li class=" " data-id="Likee/Likee/APIError" data-name="likee::apierror">
+      <a href="Likee/APIError.html">APIError</a>
       
     </li>
   
-</ul>
-
+  <li class=" " data-id="Likee/Likee/Client" data-name="likee::client">
+      <a href="Likee/Client.html">Client</a>
+      
+    </li>
+  
+  <li class=" " data-id="Likee/Likee/ContentRoot" data-name="likee::contentroot">
+      <a href="Likee/ContentRoot.html">ContentRoot</a>
+      
+    </li>
+  
+  <li class=" " data-id="Likee/Likee/RequestFailedError" data-name="likee::requestfailederror">
+      <a href="Likee/RequestFailedError.html">RequestFailedError</a>
       
     </li>
   
@@ -79,11 +84,6 @@
   
   <li class=" " data-id="Likee/Likee/Video" data-name="likee::video">
       <a href="Likee/Video.html">Video</a>
-      
-    </li>
-  
-  <li class=" " data-id="Likee/Likee/VideoCollection" data-name="likee::videocollection">
-      <a href="Likee/VideoCollection.html">VideoCollection</a>
       
     </li>
   
@@ -132,49 +132,49 @@
   </h2>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee.cr#L3" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee.cr#L3" target="_blank">
         likee.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee/client.cr#L7" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/client.cr#L7" target="_blank">
         likee/client.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee/client/errors.cr#L1" target="_blank">
-        likee/client/errors.cr
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/concepts/content_root.cr#L3" target="_blank">
+        likee/concepts/content_root.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee/concepts/video.cr#L3" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/concepts/video.cr#L3" target="_blank">
         likee/concepts/video.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee/concepts/video_collection.cr#L4" target="_blank">
-        likee/concepts/video_collection.cr
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L4" target="_blank">
+        likee/exceptions.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee/utils.cr#L1" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/utils.cr#L1" target="_blank">
         likee/utils.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee/version.cr#L1" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/version.cr#L1" target="_blank">
         likee/version.cr
       </a>
     
@@ -217,9 +217,9 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#get_user_video(uid:String,last_post_id:String=&quot;&quot;,count=30)-class-method" class="signature"><strong>.get_user_video</strong>(uid : String, last_post_id : String = <span class="s">&quot;&quot;</span>, count = <span class="n">30</span>)</a>
+        <a href="#get_user_video(user_id:String,last_post_id=&quot;&quot;,limit=30)-class-method" class="signature"><strong>.get_user_video</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)</a>
         
-          <div class="summary"><p>Fetch videos by <em>uid</em>.</p></div>
+          <div class="summary"><p>Fetch videos by <em>user_id</em>.</p></div>
         
       </li>
     
@@ -247,28 +247,28 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="get_user_video(uid:String,last_post_id:String=&quot;&quot;,count=30)-class-method">
+    <div class="entry-detail" id="get_user_video(user_id:String,last_post_id=&quot;&quot;,limit=30)-class-method">
       <div class="signature">
         
-        def self.<strong>get_user_video</strong>(uid : String, last_post_id : String = <span class="s">&quot;&quot;</span>, count = <span class="n">30</span>)
+        def self.<strong>get_user_video</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)
 
-        <a class="method-permalink" href="#get_user_video(uid:String,last_post_id:String=&quot;&quot;,count=30)-class-method">#</a>
+        <a class="method-permalink" href="#get_user_video(user_id:String,last_post_id=&quot;&quot;,limit=30)-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Fetch videos by <em>uid</em>. The parameters <em>last_post_id</em> and <em>count</em>
-may be used to paginate.</p>
+          <p>Fetch videos by <em>user_id</em>. The parameters <em>last_post_id</em> (offset) and
+<em>limit</em> may be used to paginate through the feed.</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;likee&quot;</span>
 
-<span class="t">Likee</span>.get_user_video(uid: <span class="s">&quot;101&quot;</span>, last_post_id: <span class="s">&quot;100&quot;</span>, count: <span class="n">100</span>)</code></pre>
+<span class="t">Likee</span>.get_user_video(user_id: <span class="s">&quot;8&quot;</span>, last_post_id: <span class="s">&quot;100&quot;</span>, limit: <span class="n">100</span>)</code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kandayo/likee.cr/blob/e2d9818e310ae6aba9e6a8ff82c869e329956fe8/src/likee.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>

@@ -8,13 +8,13 @@
 <meta name="crystal_docs.project_name" content="Likee">
 
 
-    <link rel="canonical" href="https://likee.absolab.xyz/Likee/Client.html">
+    <link rel="canonical" href="https://likee.absolab.xyz/Likee/RequestFailedError.html">
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="Likee">
-  <title>Likee::Client - Likee 0.1.0</title>
+  <title>Likee::RequestFailedError - Likee 0.1.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -62,7 +62,7 @@
       
     </li>
   
-  <li class=" current" data-id="Likee/Likee/Client" data-name="likee::client">
+  <li class=" " data-id="Likee/Likee/Client" data-name="likee::client">
       <a href="../Likee/Client.html">Client</a>
       
     </li>
@@ -72,7 +72,7 @@
       
     </li>
   
-  <li class=" " data-id="Likee/Likee/RequestFailedError" data-name="likee::requestfailederror">
+  <li class=" current" data-id="Likee/Likee/RequestFailedError" data-name="likee::requestfailederror">
       <a href="../Likee/RequestFailedError.html">RequestFailedError</a>
       
     </li>
@@ -101,15 +101,26 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Likee::Client
+  <span class="kind">class</span> Likee::RequestFailedError
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Likee/Client.html">Likee::Client</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Likee/RequestFailedError.html">Likee::RequestFailedError</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>This exception is raised when the HTTP status is not between 200 and 299.</p>
 
 
 
@@ -134,38 +145,14 @@
   </h2>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/client.cr#L8" target="_blank">
-        likee/client.cr
+      <a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L6" target="_blank">
+        likee/exceptions.cr
       </a>
     
     <br/>
   
 
 
-
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-      Constant Summary
-    </h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="BASE_URL">
-        <strong>BASE_URL</strong> = <code><span class="s">&quot;https://api.like-video.com&quot;</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="GET_USER_VIDEO_PATH">
-        <strong>GET_USER_VIDEO_PATH</strong> = <code><span class="s">&quot;/likee-activity-flow-micro/videoApi/getUserVideo&quot;</span></code>
-      </dt>
-      
-    
-  </dl>
 
 
 
@@ -180,7 +167,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(client:HTTP::Client=build_client)-class-method" class="signature"><strong>.new</strong>(client : HTTP::Client = build_client)</a>
+        <a href="#new(response)-class-method" class="signature"><strong>.new</strong>(response)</a>
         
       </li>
     
@@ -201,7 +188,22 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#get_user_video(user_id:String,last_post_id=&quot;&quot;,limit=30)-instance-method" class="signature"><strong>#get_user_video</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)</a>
+        <a href="#message-instance-method" class="signature"><strong>#message</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#response:HTTP::Client::Response-instance-method" class="signature"><strong>#response</strong> : HTTP::Client::Response</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#status(*args,**options)-instance-method" class="signature"><strong>#status</strong>(*args, **options)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#status(*args,**options,&)-instance-method" class="signature"><strong>#status</strong>(*args, **options, &)</a>
         
       </li>
     
@@ -212,6 +214,16 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
   
     
 
@@ -245,18 +257,18 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(client:HTTP::Client=build_client)-class-method">
+    <div class="entry-detail" id="new(response)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(client : HTTP::Client = build_client)
+        def self.<strong>new</strong>(response)
 
-        <a class="method-permalink" href="#new(client:HTTP::Client=build_client)-class-method">#</a>
+        <a class="method-permalink" href="#new(response)-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/client.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -275,18 +287,66 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="get_user_video(user_id:String,last_post_id=&quot;&quot;,limit=30)-instance-method">
+    <div class="entry-detail" id="message-instance-method">
       <div class="signature">
         
-        def <strong>get_user_video</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)
+        def <strong>message</strong>
 
-        <a class="method-permalink" href="#get_user_video(user_id:String,last_post_id=&quot;&quot;,limit=30)-instance-method">#</a>
+        <a class="method-permalink" href="#message-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/client.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="response:HTTP::Client::Response-instance-method">
+      <div class="signature">
+        
+        def <strong>response</strong> : HTTP::Client::Response
+
+        <a class="method-permalink" href="#response:HTTP::Client::Response-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="status(*args,**options)-instance-method">
+      <div class="signature">
+        
+        def <strong>status</strong>(*args, **options)
+
+        <a class="method-permalink" href="#status(*args,**options)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="status(*args,**options,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>status</strong>(*args, **options, &)
+
+        <a class="method-permalink" href="#status(*args,**options,&)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kandayo/likee.cr/blob/a23bb9771ca329d603047a656ec00b79b50899a6/src/likee/exceptions.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
