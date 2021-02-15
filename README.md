@@ -1,10 +1,12 @@
 # Likee.cr
 
-Unofficial Likee API wrapper for Crystal.
-
 ![Unit Tests](https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg)
 ![Integration Tests](https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg)
 [![GitHub release](https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release)](https://github.com/kandayo/likee.cr/releases)
+
+Unofficial Likee API wrapper for Crystal.
+
+See also: [**Likee Scraper**](https://github.com/kandayo/likee-scraper).
 
 ## Disclaimer
 
