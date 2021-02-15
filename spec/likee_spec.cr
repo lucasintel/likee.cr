@@ -1,7 +1,7 @@
 require "./spec_helper"
 
 describe Likee do
-  describe ".get_user_video" do
+  describe ".get_user_videos" do
     it "fetches user videos" do
       WebMock
         .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo")
@@ -12,7 +12,7 @@ describe Likee do
           status: 200, body: mocked_post_list
         )
 
-      collection = Likee.get_user_video(user_id: "101", last_post_id: "100", limit: 50)
+      collection = Likee.get_user_videos(user_id: "101", last_post_id: "100", limit: 50)
       collection.size.should eq(2)
 
       video1 = collection[0]
@@ -71,7 +71,7 @@ describe Likee do
             status: 200, body: mocked_post_list
           )
 
-        collection = Likee.get_user_video(user_id: "101", last_post_id: "", limit: 50)
+        collection = Likee.get_user_videos(user_id: "101", last_post_id: "", limit: 50)
         collection.size.should eq(2)
       end
     end

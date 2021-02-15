@@ -7,10 +7,10 @@ module Likee
   # ```
   # require "likee"
   #
-  # Likee.get_user_video(user_id: "8", last_post_id: "100", limit: 100)
+  # Likee.get_user_videos(user_id: "8", last_post_id: "100", limit: 100)
   # ```
-  def self.get_user_video(user_id : String, last_post_id = "", limit = 30)
-    client.get_user_video(
+  def self.get_user_videos(user_id : String, last_post_id = "", limit = 30)
+    client.get_user_videos(
       user_id: user_id,
       last_post_id: last_post_id,
       limit: limit

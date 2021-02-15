@@ -35,7 +35,7 @@ For more examples, please refer to the [**documentation**](https://kandayo.githu
 ```crystal
 require "likee"
 
-Likee.get_user_video(uid: "101", last_post_id: "100", count: 100)
+Likee.get_user_videos(uid: "101", last_post_id: "100", count: 100)
 ```
 
 ## Contributing

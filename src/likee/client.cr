@@ -6,13 +6,13 @@ require "./utils"
 
 module Likee
   class Client
-    BASE_URL            = "https://api.like-video.com"
-    GET_USER_VIDEO_PATH = "/likee-activity-flow-micro/videoApi/getUserVideo"
+    BASE_URL             = "https://api.like-video.com"
+    GET_USER_VIDEOS_PATH = "/likee-activity-flow-micro/videoApi/getUserVideo"
 
     def initialize(@client : HTTP::Client = build_client)
     end
 
-    def get_user_video(user_id : String, last_post_id = "", limit = 30)
+    def get_user_videos(user_id : String, last_post_id = "", limit = 30)
       params = {
         "uid"        => user_id,
         "lastPostId" => last_post_id,
@@ -20,7 +20,7 @@ module Likee
         "tabType"    => 0,
       }
 
-      response = @client.post(GET_USER_VIDEO_PATH, body: params.to_json)
+      response = @client.post(GET_USER_VIDEOS_PATH, body: params.to_json)
       response_body = parse_response!(response)
 
       Array(Video).from_json(response_body, root: "videoList")
