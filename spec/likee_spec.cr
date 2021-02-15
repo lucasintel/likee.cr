@@ -12,10 +12,10 @@ describe Likee do
           status: 200, body: mocked_post_list
         )
 
-      collection = Likee.get_user_video(uid: "101", last_post_id: "100", count: 50)
-      collection.videos.size.should eq(2)
+      collection = Likee.get_user_video(user_id: "101", last_post_id: "100", limit: 50)
+      collection.size.should eq(2)
 
-      video1 = collection.videos[0]
+      video1 = collection[0]
       video1.id.should eq("6928482856398255415")
       video1.uploaded_at.should eq(Time.utc(2021, 2, 12, 20, 52, 3))
       video1.creator_id.should eq("30007")
@@ -37,7 +37,7 @@ describe Likee do
       video1.music_id.should eq("")
       video1.music_name.should eq("Likee US")
 
-      video2 = collection.videos[1]
+      video2 = collection[1]
       video2.id.should eq("6928474090370004279")
       video2.uploaded_at.should eq(Time.utc(2021, 2, 12, 20, 18, 2))
       video2.creator_id.should eq("30007")
@@ -71,8 +71,8 @@ describe Likee do
             status: 200, body: mocked_post_list
           )
 
-        collection = Likee.get_user_video(uid: "101", last_post_id: "", count: 50)
-        collection.videos.size.should eq(2)
+        collection = Likee.get_user_video(user_id: "101", last_post_id: "", limit: 50)
+        collection.size.should eq(2)
       end
     end
   end

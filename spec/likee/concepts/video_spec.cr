@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Likee::Video do
   describe ".from_json" do
-    it "parses the PostList from the response_body" do
+    it "parses the Video from JSON" do
       video = Likee::Video.from_json(mocked_post)
 
       video.id.should eq("6928482856398255415")

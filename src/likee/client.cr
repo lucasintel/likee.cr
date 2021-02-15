@@ -1,35 +1,38 @@
 require "http/client"
 
 require "./concepts/*"
-require "./client/*"
+require "./exceptions"
 require "./utils"
 
 module Likee
   class Client
-    BASE_URL = "https://api.like-video.com"
+    BASE_URL            = "https://api.like-video.com"
     GET_USER_VIDEO_PATH = "/likee-activity-flow-micro/videoApi/getUserVideo"
 
     def initialize(@client : HTTP::Client = build_client)
     end
 
-    def get_user_video(uid : String, last_post_id : String = "", count = 30)
-      response_body = request(
-        GET_USER_VIDEO_PATH,
-        { uid: uid, lastPostId: last_post_id, count: count, tabType: 0 }.to_json
-      )
+    def get_user_video(user_id : String, last_post_id = "", limit = 30)
+      params = {
+        "uid"        => user_id,
+        "lastPostId" => last_post_id,
+        "count"      => limit,
+        "tabType"    => 0,
+      }
 
-      Likee::VideoCollection.from_json(response_body, root: "data")
+      response = @client.post(GET_USER_VIDEO_PATH, body: params.to_json)
+      response_body = parse_response!(response)
+
+      Array(Video).from_json(response_body, root: "videoList")
     end
 
-    private def request(endpoint : String, params : String) : String
-      response = @client.post(endpoint, body: params)
-      raise ClientError.new(response.status) unless response.success?
+    private def parse_response!(response : HTTP::Client::Response) : String
+      raise RequestFailedError.new(response) unless response.success?
 
-      parsed_body = JSON.parse(response.body)
-      code = parsed_body["code"].as_i
-      raise ClientError.new(parsed_body) unless code.zero?
+      content_root = ContentRoot.from_json(response.body)
+      raise APIError.new(content_root) unless content_root.success?
 
-      response.body
+      content_root.json_unmapped["data"].to_json
     end
 
     private def build_client : HTTP::Client

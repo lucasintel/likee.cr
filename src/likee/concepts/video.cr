@@ -1,7 +1,7 @@
 require "json"
 
 module Likee
-  # The `Video` entity represents a Likee video.
+  # The `Video` structure represents a Likee video.
   #
   # The JSON payload returned by the API call is parsed and transformed to a
   # stable interface.
