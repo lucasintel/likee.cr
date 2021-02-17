@@ -1,8 +1,9 @@
 module Likee
   module Client
     module ActivityFlowEndpoints
-      BASE_URL    = "https://api.like-video.com"
-      USER_VIDEOS = "/likee-activity-flow-micro/videoApi/getUserVideo"
+      BASE_URL         = "https://api.like-video.com"
+      USER_VIDEOS      = "/likee-activity-flow-micro/videoApi/getUserVideo"
+      USER_POSTS_COUNT = "/likee-activity-flow-micro/userApi/getUserPostNum"
 
       # Gets a collection of videos published by the given user.
       #
@@ -24,6 +25,25 @@ module Likee
         payload = post(BASE_URL, USER_VIDEOS, body: params.to_json)
 
         Array(Video).from_json(payload, root: "videoList")
+      end
+
+      # Gets the posts count of the given user.
+      #
+      # ```
+      # user_info = Likee.user_posts_count(user_id: "1111")
+      # user_info.likes_count # => 1_000_000
+      # ```
+      def user_posts_count(user_id : String) : UserPostsCount?
+        params = {
+          "uid" => user_id,
+        }
+
+        payload = post(BASE_URL, USER_POSTS_COUNT, body: params.to_json)
+
+        pull = JSON::PullParser.new(payload)
+        pull.on_key("postInfoMap") do
+          pull.on_key(user_id) { UserPostsCount.new(pull) }
+        end
       end
     end
   end

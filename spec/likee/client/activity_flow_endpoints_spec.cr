@@ -100,4 +100,54 @@ describe Likee::Client::ActivityFlowEndpoints do
       end
     end
   end
+
+  describe "#user_posts_count" do
+    it "gets the posts count of the given user" do
+      WebMock
+        .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/userApi/getUserPostNum")
+        .with(body: {uid: "30000"}.to_json)
+        .to_return(status: 200, body: load_fixture("user_posts_count"))
+
+      posts_count = Likee.user_posts_count(user_id: "30000")
+      posts_count.should_not be_nil
+
+      if posts_count
+        posts_count.likes_count.should eq(15_788_313)
+        posts_count.videos_count.should eq(1_725)
+        posts_count.moments_count.should eq(1)
+      end
+    end
+
+    context "when a HTTP error occurs" do
+      it "raises Likee::RequestFailedError" do
+        WebMock
+          .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/userApi/getUserPostNum")
+          .with(body: {uid: "30000"}.to_json)
+          .to_return(status: 404)
+
+        expect_raises(
+          Likee::RequestFailedError,
+          "HTTP status code 404: Not Found"
+        ) do
+          Likee.user_posts_count(user_id: "30000")
+        end
+      end
+    end
+
+    context "when Likee API returns a non-zero code" do
+      it "raises Likee::RequestFailedError" do
+        WebMock
+          .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/userApi/getUserPostNum")
+          .with(body: {uid: "30000"}.to_json)
+          .to_return(status: 200, body: load_fixture("api_error"))
+
+        expect_raises(
+          Likee::APIError,
+          "Likee API code 41001: request method not support"
+        ) do
+          Likee.user_posts_count(user_id: "30000")
+        end
+      end
+    end
+  end
 end

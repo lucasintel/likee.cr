@@ -1,0 +1,14 @@
+{
+  "code": 0,
+  "data": {
+    "postInfoMap": {
+      "30000": {
+        "allLikeCount": 15788313,
+        "videoNums": 1725,
+        "momentNums": 1,
+        "likeNums": 38
+      }
+    }
+  },
+  "message": "ok"
+}

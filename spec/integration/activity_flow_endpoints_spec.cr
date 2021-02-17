@@ -16,4 +16,19 @@ describe "Activity Flow Endpoints" do
       video1.download_url.includes?(".mp4").should be_true
     end
   end
+
+  describe "#user_posts_count" do
+    it "gets the posts count of the given user" do
+      WebMock.allow_net_connect = true
+
+      posts_count = Likee.user_posts_count(user_id: LIKEE_OFFICIAL_ACCOUNT_ID)
+      posts_count.should_not be_nil
+
+      if posts_count
+        posts_count.likes_count.should be > 0
+        posts_count.videos_count.should be > 0
+        posts_count.moments_count.should be > 0
+      end
+    end
+  end
 end
