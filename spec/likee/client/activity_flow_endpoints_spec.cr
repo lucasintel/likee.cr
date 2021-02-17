@@ -1,18 +1,14 @@
-require "./spec_helper"
+require "./../../spec_helper"
 
-describe Likee do
-  describe ".get_user_videos" do
-    it "fetches user videos" do
+describe Likee::Client::ActivityFlowEndpoints do
+  describe ".user_videos" do
+    it "gets a collection of videos published by the given user" do
       WebMock
         .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo")
-        .with(
-          body: {uid: "101", lastPostId: "100", count: 50, tabType: 0}.to_json
-        )
-        .to_return(
-          status: 200, body: mocked_post_list
-        )
+        .with(body: {uid: "101", lastPostId: "100", count: 50, tabType: 0}.to_json)
+        .to_return(status: 200, body: load_fixture("video_collection"))
 
-      collection = Likee.get_user_videos(user_id: "101", last_post_id: "100", limit: 50)
+      collection = Likee.user_videos(user_id: "101", last_post_id: "100", limit: 50)
       collection.size.should eq(2)
 
       video1 = collection[0]
@@ -61,18 +57,46 @@ describe Likee do
     end
 
     context "when last_post_id is not given" do
-      it "fetches user videos" do
+      it "sends lastPostId param as an empty string" do
         WebMock
           .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo")
-          .with(
-            body: {uid: "101", lastPostId: "", count: 50, tabType: 0}.to_json
-          )
-          .to_return(
-            status: 200, body: mocked_post_list
-          )
+          .with(body: {uid: "101", lastPostId: "", count: 50, tabType: 0}.to_json)
+          .to_return(status: 200, body: load_fixture("video_collection"))
 
-        collection = Likee.get_user_videos(user_id: "101", last_post_id: "", limit: 50)
+        collection = Likee.user_videos(user_id: "101", last_post_id: "", limit: 50)
         collection.size.should eq(2)
+      end
+    end
+
+    context "when a HTTP error occurs" do
+      it "raises Likee::RequestFailedError" do
+        WebMock
+          .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo")
+          .with(body: {uid: "101", lastPostId: "100", count: 50, tabType: 0}.to_json)
+          .to_return(status: 404)
+
+        expect_raises(
+          Likee::RequestFailedError,
+          "HTTP status code 404: Not Found"
+        ) do
+          Likee.user_videos(user_id: "101", last_post_id: "100", limit: 50)
+        end
+      end
+    end
+
+    context "when Likee API returns a non-zero code" do
+      it "raises Likee::RequestFailedError" do
+        WebMock
+          .stub(:post, "https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo")
+          .with(body: {uid: "101", lastPostId: "100", count: 50, tabType: 0}.to_json)
+          .to_return(status: 200, body: load_fixture("api_error"))
+
+        expect_raises(
+          Likee::APIError,
+          "Likee API code 41001: request method not support"
+        ) do
+          Likee.user_videos(user_id: "101", last_post_id: "100", limit: 50)
+        end
       end
     end
   end

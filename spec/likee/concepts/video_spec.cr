@@ -3,7 +3,7 @@ require "../../spec_helper"
 describe Likee::Video do
   describe ".from_json" do
     it "parses the Video from JSON" do
-      video = Likee::Video.from_json(mocked_post)
+      video = Likee::Video.from_json(load_fixture("video"))
 
       video.id.should eq("6928482856398255415")
       video.uploaded_at.should eq(Time.utc(2021, 2, 12, 20, 52, 3))
@@ -29,7 +29,7 @@ describe Likee::Video do
 
   describe "#download_url" do
     it "returns the download url to the video without watermark" do
-      subject = Likee::Video.from_json(mocked_post)
+      subject = Likee::Video.from_json(load_fixture("video"))
 
       subject.download_url.should eq("http://video.like.video/asia_live/3s1/2NACi5.mp4?crc=1896456546&type=5")
     end

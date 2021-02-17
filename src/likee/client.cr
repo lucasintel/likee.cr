@@ -1,30 +1,22 @@
 require "http/client"
 
+require "./client/*"
 require "./concepts/*"
 require "./exceptions"
 require "./utils"
 
 module Likee
-  class Client
-    BASE_URL             = "https://api.like-video.com"
-    GET_USER_VIDEOS_PATH = "/likee-activity-flow-micro/videoApi/getUserVideo"
+  module Client
+    include ActivityFlowEndpoints
 
-    def initialize(@client : HTTP::Client = build_client)
-    end
+    {% for verb in %i[get post] %}
+      private def {{verb.id}}(base_url : String, path : String, body : String)
+        conn = build_connection(base_url)
+        response = conn.{{verb.id}}(path, body: body)
 
-    def get_user_videos(user_id : String, last_post_id = "", limit = 30)
-      params = {
-        "uid"        => user_id,
-        "lastPostId" => last_post_id,
-        "count"      => limit,
-        "tabType"    => 0,
-      }
-
-      response = @client.post(GET_USER_VIDEOS_PATH, body: params.to_json)
-      response_body = parse_response!(response)
-
-      Array(Video).from_json(response_body, root: "videoList")
-    end
+        parse_response!(response)
+      end
+    {% end %}
 
     private def parse_response!(response : HTTP::Client::Response) : String
       raise RequestFailedError.new(response) unless response.success?
@@ -32,22 +24,33 @@ module Likee
       likee_response = LikeeResponse.from_json(response.body)
       raise APIError.new(likee_response) unless likee_response.success?
 
-      likee_response.json_unmapped["data"].to_json
+      likee_response
+        .json_unmapped["data"]
+        .to_json
     end
 
-    private def build_client : HTTP::Client
-      uri = URI.parse(BASE_URL)
-      client = HTTP::Client.new(uri)
+    private def build_connection(base_url : String) : HTTP::Client
+      conn = HTTP::Client.new(URI.parse(base_url), tls: true)
 
-      client.before_request do |request|
-        request.headers["User-Agent"] = Utils.random_user_agent
-        request.headers["Referer"] = "https://likee.video/"
-        request.headers["Origin"] = "https://likee.video"
-        request.headers["Content-Type"] = "application/json"
-        request.headers["Accept"] = "application/json"
+      conn.connect_timeout = 2
+      conn.write_timeout = 2
+      conn.read_timeout = 5
+
+      conn.before_request do |request|
+        request.headers.merge!(default_headers)
       end
 
-      client
+      conn
+    end
+
+    private def default_headers : HTTP::Headers
+      HTTP::Headers{
+        "Accept"       => "application/json",
+        "Content-Type" => "application/json",
+        "Origin"       => "https://likee.video",
+        "Referer"      => "https://likee.video/",
+        "User-Agent"   => Utils.random_user_agent,
+      }
     end
   end
 end
