@@ -32,9 +32,9 @@ module Likee
     private def build_connection(base_url : String) : HTTP::Client
       conn = HTTP::Client.new(URI.parse(base_url), tls: true)
 
-      conn.connect_timeout = 2
-      conn.write_timeout = 2
-      conn.read_timeout = 5
+      conn.connect_timeout = 2.seconds
+      conn.write_timeout = 2.seconds
+      conn.read_timeout = 5.seconds
 
       conn.before_request do |request|
         request.headers.merge!(default_headers)
