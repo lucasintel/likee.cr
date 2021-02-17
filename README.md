@@ -13,17 +13,13 @@ See also: [**Likee Scraper**](https://github.com/kandayo/likee-scraper).
 
 ## Index
 
-<!-- TOC -->
-
 - [Disclaimer](#disclaimer)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Get User Videos](#get-user-videos)
-  - [Get User Posts Count](#get-user-posts-count)
+  - [Get user videos](#get-user-videos)
+  - [Get user posts count](#get-user-posts-count)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
-
-<!-- /TOC -->
 
 ## Disclaimer
 
@@ -52,7 +48,7 @@ For more examples, please refer to the [**documentation**](https://absolab.xyz/l
 require "likee"
 ```
 
-### Get User Videos
+### Get user videos
 
 Gets a collection of videos published by the given user.
 
@@ -64,7 +60,7 @@ videos = Likee.user_videos(user_id: "111")
 videos.count # => 30
 ```
 
-### Get User Posts Count
+### Get user posts count
 
 Gets the posts count of the given user.
 
