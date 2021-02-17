@@ -1,6 +1,8 @@
 require "json"
 
 module Likee
+  # The `UserPostsCount` structure represents an object that stores the
+  # information about the user posts.
   struct UserPostsCount
     include JSON::Serializable
     include JSON::Serializable::Unmapped

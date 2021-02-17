@@ -11,8 +11,8 @@ module Likee
       # used to paginate through the user profile.
       #
       # ```
-      # videos = Likee.user_videos(user_id: "1111")
-      # p videos # => [#<Likee::Video{10}>, ...]
+      # videos = Likee.user_videos(user_id: "111")
+      # videos.count # => 30
       # ```
       def user_videos(user_id : String, last_post_id = "", limit = 30) : Array(Video)
         params = {
@@ -31,7 +31,10 @@ module Likee
       #
       # ```
       # user_info = Likee.user_posts_count(user_id: "1111")
-      # user_info.likes_count # => 1_000_000
+      #
+      # user_info.videos_count  # => 550
+      # user_info.likes_count   # => 1_000_000
+      # user_info.moments_count # => 22
       # ```
       def user_posts_count(user_id : String) : UserPostsCount?
         params = {
