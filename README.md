@@ -1,4 +1,4 @@
-# Likee.cr
+# Likee
 
 ![Unit Tests](https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg)
 ![Integration Tests](https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg)
@@ -6,7 +6,24 @@
 
 Unofficial Likee API wrapper for Crystal.
 
+The main goal of this project is to provide a stable interface, with a well
+defined and documented model. Likee API changes will be handled seamlessly.
+
 See also: [**Likee Scraper**](https://github.com/kandayo/likee-scraper).
+
+## Index
+
+<!-- TOC -->
+
+- [Disclaimer](#disclaimer)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Get User Videos](#get-user-videos)
+  - [Get User Posts Count](#get-user-posts-count)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+
+<!-- /TOC -->
 
 ## Disclaimer
 
@@ -23,19 +40,40 @@ This is purely an educational proof of concept.
 dependencies:
  likee:
    github: kandayo/likee.cr
-   version: ~> 0.1.0
 ```
 
 2. Run `shards install`
 
 ## Usage
 
-For more examples, please refer to the [**documentation**](https://kandayo.github.io/likee.cr/Likee.html).
+For more examples, please refer to the [**documentation**](https://absolab.xyz/likee.cr).
 
 ```crystal
 require "likee"
+```
 
-Likee.get_user_videos(uid: "101", last_post_id: "100", limit: 100)
+### Get User Videos
+
+Gets a collection of videos published by the given user.
+
+The parameters **last_post_id** (as in, offset) and **limit** may be used to
+paginate through the user profile.
+
+```crystal
+videos = Likee.user_videos(user_id: "111")
+videos.count # => 30
+```
+
+### Get User Posts Count
+
+Gets the posts count of the given user.
+
+```crystal
+user_info = Likee.user_posts_count(user_id: "1111")
+
+user_info.videos_count  # => 550
+user_info.likes_count   # => 1_000_000
+user_info.moments_count # => 22
 ```
 
 ## Contributing
