@@ -13,8 +13,6 @@ See also: [**Likee Scraper**](https://github.com/kandayo/likee-scraper).
 
 ## Index
 
-<!-- TOC -->
-
 - [Disclaimer](#disclaimer)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -22,8 +20,6 @@ See also: [**Likee Scraper**](https://github.com/kandayo/likee-scraper).
   - [Get User Posts Count](#get-user-posts-count)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
-
-<!-- /TOC -->
 
 ## Disclaimer
 
