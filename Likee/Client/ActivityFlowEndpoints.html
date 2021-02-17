@@ -161,7 +161,7 @@
   </h2>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/2362444ee76e7cbf8c8c9b1339cb02caffce0d7c/src/likee/client/activity_flow_endpoints.cr#L3" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/c11ec3ffaaf1c17e02ec0528000e79249a2439ba/src/likee/client/activity_flow_endpoints.cr#L3" target="_blank">
         likee/client/activity_flow_endpoints.cr
       </a>
     
@@ -266,13 +266,16 @@
           <p>Gets the posts count of the given user.</p>
 
 <pre><code class="language-crystal">user_info <span class="o">=</span> <span class="t">Likee</span>.user_posts_count(user_id: <span class="s">&quot;1111&quot;</span>)
-user_info.likes_count <span class="c"># =&gt; 1_000_000</span></code></pre>
+
+user_info.videos_count  <span class="c"># =&gt; 550</span>
+user_info.likes_count   <span class="c"># =&gt; 1_000_000</span>
+user_info.moments_count <span class="c"># =&gt; 22</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kandayo/likee.cr/blob/2362444ee76e7cbf8c8c9b1339cb02caffce0d7c/src/likee/client/activity_flow_endpoints.cr#L36" target="_blank">View source</a>]
+          [<a href="https://github.com/kandayo/likee.cr/blob/c11ec3ffaaf1c17e02ec0528000e79249a2439ba/src/likee/client/activity_flow_endpoints.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -292,14 +295,14 @@ user_info.likes_count <span class="c"># =&gt; 1_000_000</span></code></pre>
 <p>The parameters <em>last_post_id</em> (as in, offset) and <em>limit</em> may be
 used to paginate through the user profile.</p>
 
-<pre><code class="language-crystal">videos <span class="o">=</span> <span class="t">Likee</span>.user_videos(user_id: <span class="s">&quot;1111&quot;</span>)
-p videos <span class="c"># =&gt; [#&lt;Likee::Video{10}&gt;, ...]</span></code></pre>
+<pre><code class="language-crystal">videos <span class="o">=</span> <span class="t">Likee</span>.user_videos(user_id: <span class="s">&quot;111&quot;</span>)
+videos.count <span class="c"># =&gt; 30</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kandayo/likee.cr/blob/2362444ee76e7cbf8c8c9b1339cb02caffce0d7c/src/likee/client/activity_flow_endpoints.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kandayo/likee.cr/blob/c11ec3ffaaf1c17e02ec0528000e79249a2439ba/src/likee/client/activity_flow_endpoints.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
