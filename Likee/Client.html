@@ -62,8 +62,18 @@
       
     </li>
   
-  <li class=" current" data-id="Likee/Likee/Client" data-name="likee::client">
+  <li class="parent open current" data-id="Likee/Likee/Client" data-name="likee::client">
       <a href="../Likee/Client.html">Client</a>
+      
+        <ul>
+  
+  <li class=" " data-id="Likee/Likee/Client/ActivityFlowEndpoints" data-name="likee::client::activityflowendpoints">
+      <a href="../Likee/Client/ActivityFlowEndpoints.html">ActivityFlowEndpoints</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -74,6 +84,11 @@
   
   <li class=" " data-id="Likee/Likee/RequestFailedError" data-name="likee::requestfailederror">
       <a href="../Likee/RequestFailedError.html">RequestFailedError</a>
+      
+    </li>
+  
+  <li class=" " data-id="Likee/Likee/UserPostsCount" data-name="likee::userpostscount">
+      <a href="../Likee/UserPostsCount.html">UserPostsCount</a>
       
     </li>
   
@@ -101,12 +116,11 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Likee::Client
+  <span class="kind">module</span> Likee::Client
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Likee/Client.html">Likee::Client</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -114,6 +128,19 @@
 
 
 
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Likee/Client/ActivityFlowEndpoints.html">Likee::Client::ActivityFlowEndpoints</a></li>
+    
+  </ul>
 
 
 
@@ -134,8 +161,15 @@
   </h2>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/client.cr#L8" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/client.cr#L9" target="_blank">
         likee/client.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/client/activity_flow_endpoints.cr#L2" target="_blank">
+        likee/client/activity_flow_endpoints.cr
       </a>
     
     <br/>
@@ -143,69 +177,11 @@
 
 
 
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-      Constant Summary
-    </h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="BASE_URL">
-        <strong>BASE_URL</strong> = <code><span class="s">&quot;https://api.like-video.com&quot;</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="GET_USER_VIDEOS_PATH">
-        <strong>GET_USER_VIDEOS_PATH</strong> = <code><span class="s">&quot;/likee-activity-flow-micro/videoApi/getUserVideo&quot;</span></code>
-      </dt>
-      
-    
-  </dl>
-
-
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new(client:HTTP::Client=build_client)-class-method" class="signature"><strong>.new</strong>(client : HTTP::Client = build_client)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
 
 
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#get_user_videos(user_id:String,last_post_id=&quot;&quot;,limit=30)-instance-method" class="signature"><strong>#get_user_videos</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -215,15 +191,19 @@
   
     
 
-
-    
-
-
-    
-
-
+  <h3>Instance methods inherited from module <code><a href="../Likee/Client/ActivityFlowEndpoints.html">Likee::Client::ActivityFlowEndpoints</a></code></h3>
   
+  
+    <a href="../Likee/Client/ActivityFlowEndpoints.html#user_posts_count(user_id:String):UserPostsCount?-instance-method" class="tooltip">
+      <span>user_posts_count(user_id : String) : UserPostsCount?</span>
+    user_posts_count</a>, 
     
+  
+    <a href="../Likee/Client/ActivityFlowEndpoints.html#user_videos(user_id:String,last_post_id=&quot;&quot;,limit=30):Array(Video)-instance-method" class="tooltip">
+      <span>user_videos(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>) : Array(Video)</span>
+    user_videos</a>
+    
+  
 
 
     
@@ -236,61 +216,9 @@
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(client:HTTP::Client=build_client)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(client : HTTP::Client = build_client)
-
-        <a class="method-permalink" href="#new(client:HTTP::Client=build_client)-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/client.cr#L12" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 
-
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="get_user_videos(user_id:String,last_post_id=&quot;&quot;,limit=30)-instance-method">
-      <div class="signature">
-        
-        def <strong>get_user_videos</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)
-
-        <a class="method-permalink" href="#get_user_videos(user_id:String,last_post_id=&quot;&quot;,limit=30)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/client.cr#L15" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 

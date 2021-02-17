@@ -62,8 +62,18 @@
       
     </li>
   
-  <li class=" " data-id="Likee/Likee/Client" data-name="likee::client">
+  <li class="parent " data-id="Likee/Likee/Client" data-name="likee::client">
       <a href="Likee/Client.html">Client</a>
+      
+        <ul>
+  
+  <li class=" " data-id="Likee/Likee/Client/ActivityFlowEndpoints" data-name="likee::client::activityflowendpoints">
+      <a href="Likee/Client/ActivityFlowEndpoints.html">ActivityFlowEndpoints</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -74,6 +84,11 @@
   
   <li class=" " data-id="Likee/Likee/RequestFailedError" data-name="likee::requestfailederror">
       <a href="Likee/RequestFailedError.html">RequestFailedError</a>
+      
+    </li>
+  
+  <li class=" " data-id="Likee/Likee/UserPostsCount" data-name="likee::userpostscount">
+      <a href="Likee/UserPostsCount.html">UserPostsCount</a>
       
     </li>
   
@@ -115,6 +130,20 @@
 
 
 
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="Likee/Client.html">Likee::Client</a></li>
+    
+  </ul>
+
 
 
 
@@ -132,49 +161,63 @@
   </h2>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee.cr#L3" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee.cr#L3" target="_blank">
         likee.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/client.cr#L7" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/client.cr#L8" target="_blank">
         likee/client.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/concepts/likee_response.cr#L3" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/client/activity_flow_endpoints.cr#L1" target="_blank">
+        likee/client/activity_flow_endpoints.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/concepts/likee_response.cr#L3" target="_blank">
         likee/concepts/likee_response.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/concepts/video.cr#L3" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/concepts/user_posts_count.cr#L3" target="_blank">
+        likee/concepts/user_posts_count.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/concepts/video.cr#L3" target="_blank">
         likee/concepts/video.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/exceptions.cr#L4" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/exceptions.cr#L4" target="_blank">
         likee/exceptions.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/utils.cr#L1" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/utils.cr#L1" target="_blank">
         likee/utils.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee/version.cr#L1" target="_blank">
+      <a href="https://github.com/kandayo/likee.cr/blob/bcb7d6fb44aa185e28db88f9815ac73bad8b3c85/src/likee/version.cr#L1" target="_blank">
         likee/version.cr
       </a>
     
@@ -206,25 +249,6 @@
 
 
 
-  <h2>
-    <a id="class-method-summary" class="anchor" href="#class-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#get_user_videos(user_id:String,last_post_id=&quot;&quot;,limit=30)-class-method" class="signature"><strong>.get_user_videos</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)</a>
-        
-          <div class="summary"><p>Fetch videos by <em>user_id</em>.</p></div>
-        
-      </li>
-    
-  </ul>
-
 
 
 
@@ -237,42 +261,6 @@
 
 
 
-
-  <h2>
-    <a id="class-method-detail" class="anchor" href="#class-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="get_user_videos(user_id:String,last_post_id=&quot;&quot;,limit=30)-class-method">
-      <div class="signature">
-        
-        def self.<strong>get_user_videos</strong>(user_id : String, last_post_id = <span class="s">&quot;&quot;</span>, limit = <span class="n">30</span>)
-
-        <a class="method-permalink" href="#get_user_videos(user_id:String,last_post_id=&quot;&quot;,limit=30)-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Fetch videos by <em>user_id</em>. The parameters <em>last_post_id</em> (offset) and
-<em>limit</em> may be used to paginate through the feed.</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;likee&quot;</span>
-
-<span class="t">Likee</span>.get_user_videos(user_id: <span class="s">&quot;8&quot;</span>, last_post_id: <span class="s">&quot;100&quot;</span>, limit: <span class="n">100</span>)</code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kandayo/likee.cr/blob/20c2ee0174d85ee7f75d6533089265dfae5b7e9e/src/likee.cr#L12" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 

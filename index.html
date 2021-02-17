@@ -62,8 +62,18 @@
       
     </li>
   
-  <li class=" " data-id="Likee/Likee/Client" data-name="likee::client">
+  <li class="parent " data-id="Likee/Likee/Client" data-name="likee::client">
       <a href="Likee/Client.html">Client</a>
+      
+        <ul>
+  
+  <li class=" " data-id="Likee/Likee/Client/ActivityFlowEndpoints" data-name="likee::client::activityflowendpoints">
+      <a href="Likee/Client/ActivityFlowEndpoints.html">ActivityFlowEndpoints</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -74,6 +84,11 @@
   
   <li class=" " data-id="Likee/Likee/RequestFailedError" data-name="likee::requestfailederror">
       <a href="Likee/RequestFailedError.html">RequestFailedError</a>
+      
+    </li>
+  
+  <li class=" " data-id="Likee/Likee/UserPostsCount" data-name="likee::userpostscount">
+      <a href="Likee/UserPostsCount.html">UserPostsCount</a>
       
     </li>
   
@@ -99,11 +114,11 @@
 
 
 <div class="main-content">
-<h1><a id="likee.cr" class="anchor" href="#likee.cr">
+<h1><a id="likee" class="anchor" href="#likee">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Likee.cr</h1>
+</a>Likee</h1>
 
 <p><img src="https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg" alt="Unit Tests"/>
 <img src="https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg" alt="Integration Tests"/>
@@ -111,7 +126,22 @@
 
 <p>Unofficial Likee API wrapper for Crystal.</p>
 
+<p>The main goal of this project is to provide a stable interface, with a well
+defined and documented model. Likee API changes will be handled seamlessly.</p>
+
 <p>See also: <a href="https://github.com/kandayo/likee-scraper"><strong>Likee Scraper</strong></a>.</p>
+
+<h2><a id="index" class="anchor" href="#index">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Index</h2>
+
+<p>&lt;!-- TOC --></p>
+
+<ul><li><a href="#disclaimer">Disclaimer</a></li><li><a href="#installation">Installation</a></li><li><a href="#usage">Usage</a></li><ul><li><a href="#get-user-videos">Get User Videos</a></li><li><a href="#get-user-posts-count">Get User Posts Count</a></li></ul><li><a href="#contributing">Contributing</a></li><li><a href="#contributors">Contributors</a></li></ul>
+
+<p>&lt;!-- /TOC --></p>
 
 <h2><a id="disclaimer" class="anchor" href="#disclaimer">
   <svg class="octicon-link" aria-hidden="true">
@@ -134,8 +164,7 @@ Likee or any of its affiliates or subsidiaries.</p>
 
 <pre><code class="language-yaml">dependencies:
  likee:
-   github: kandayo/likee.cr
-   version: ~> 0.1.0</code></pre>
+   github: kandayo/likee.cr</code></pre>
 
 <ol><li>Run <code>shards install</code></li></ol>
 
@@ -145,11 +174,37 @@ Likee or any of its affiliates or subsidiaries.</p>
   </svg>
 </a>Usage</h2>
 
-<p>For more examples, please refer to the <a href="https://kandayo.github.io/likee.cr/Likee.html"><strong>documentation</strong></a>.</p>
+<p>For more examples, please refer to the <a href="https://absolab.xyz/likee.cr"><strong>documentation</strong></a>.</p>
 
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;likee&quot;</span>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;likee&quot;</span></code></pre>
 
-<span class="t">Likee</span>.get_user_videos(uid: <span class="s">&quot;101&quot;</span>, last_post_id: <span class="s">&quot;100&quot;</span>, limit: <span class="n">100</span>)</code></pre>
+<h3><a id="get-user-videos" class="anchor" href="#get-user-videos">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Get User Videos</h3>
+
+<p>Gets a collection of videos published by the given user.</p>
+
+<p>The parameters <em>last_post_id</em> (as in, offset) and <em>limit</em> may be used to
+paginate through the user profile.</p>
+
+<pre><code class="language-crystal">videos <span class="o">=</span> <span class="t">Likee</span>.user_videos(user_id: <span class="s">&quot;111&quot;</span>)
+videos.count <span class="c"># =&gt; 30</span></code></pre>
+
+<h3><a id="get-user-posts-count" class="anchor" href="#get-user-posts-count">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Get User Posts Count</h3>
+
+<p>Gets the posts count of the given user.</p>
+
+<pre><code class="language-crystal">user_info <span class="o">=</span> <span class="t">Likee</span>.user_posts_count(user_id: <span class="s">&quot;1111&quot;</span>)
+
+user_info.videos_count  <span class="c"># =&gt; 550</span>
+user_info.likes_count   <span class="c"># =&gt; 1_000_000</span>
+user_info.moments_count <span class="c"># =&gt; 22</span></code></pre>
 
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
