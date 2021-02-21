@@ -9,7 +9,8 @@ module Likee
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
-    private WATERMARK_SUFFIX = "_4"
+    private WATERMARK_SUFFIX         = "_4.mp4"
+    private WITHOUT_WATERMARK_SUFFIX = ".mp4"
 
     @[JSON::Field(key: "postId")]
     # Returns the video id.
@@ -91,7 +92,7 @@ module Likee
 
     # Extracts the URL to the video without the watermark.
     def download_url : String
-      video_url.sub(WATERMARK_SUFFIX, "")
+      video_url.sub(WATERMARK_SUFFIX, WITHOUT_WATERMARK_SUFFIX)
     end
   end
 end
