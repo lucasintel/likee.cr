@@ -3,7 +3,7 @@
 [![Built with Crystal 0.36.1](https://img.shields.io/badge/Crystal-0.36.1-%23333333)](https://crystal-lang.org/)
 [![GitHub release](https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release)](https://github.com/kandayo/likee.cr/releases)
 [![Unit Tests](https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg)](https://github.com/kandayo/likee.cr/actions)
-[![GitHub release](https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release)](https://github.com/kandayo/likee.cr/releases)
+[![Integration Tests](https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg)](https://github.com/kandayo/likee.cr/actions)
 
 Unofficial Likee API wrapper for Crystal.
 
