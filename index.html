@@ -120,14 +120,14 @@
   </svg>
 </a>Likee</h1>
 
-<p><img src="https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg" alt="Unit Tests"/>
-<img src="https://github.com/kandayo/likee.cr/workflows/Integration%20Tests/badge.svg" alt="Integration Tests"/>
+<p><a href="https://crystal-lang.org/"><img src="https://img.shields.io/badge/Crystal-0.36.1-%23333333" alt="Built with Crystal 0.36.1"/></a>
+<a href="https://github.com/kandayo/likee.cr/releases"><img src="https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release" alt="GitHub release"/></a>
+<a href="https://github.com/kandayo/likee.cr/actions"><img src="https://github.com/kandayo/likee.cr/workflows/Unit%20Tests/badge.svg" alt="Unit Tests"/></a>
 <a href="https://github.com/kandayo/likee.cr/releases"><img src="https://img.shields.io/github/release/kandayo/likee.cr.svg?label=Release" alt="GitHub release"/></a></p>
 
 <p>Unofficial Likee API wrapper for Crystal.</p>
 
-<p>The main goal of this project is to provide a stable interface, with a well
-defined and documented model. Likee API changes will be handled seamlessly.</p>
+<p>The integration tests are scheduled to run twice a day, through Github Actions.</p>
 
 <p>See also: <a href="https://github.com/kandayo/likee-scraper"><strong>Likee Scraper</strong></a>.</p>
 
@@ -158,9 +158,13 @@ Likee or any of its affiliates or subsidiaries.</p>
 
 <ol><li>Add the dependency to your <code>shard.yml</code>:</li></ol>
 
-<pre><code class="language-yaml">dependencies:
- likee:
-   github: kandayo/likee.cr</code></pre>
+<p><code></code>`yaml
+   dependencies:</p>
+
+<pre><code class="language-crystal">likee:
+  github: kandayo/likee.cr</code></pre>
+
+<p><code></code>`</p>
 
 <ol><li>Run <code>shards install</code></li></ol>
 
