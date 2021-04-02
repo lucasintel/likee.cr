@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: oprypin/install-crystal@v1
         with:
-          crystal: 0.36.1
+          crystal: 1.0.0
       - run: shards install
       - run: crystal docs --project-name "Likee" --canonical-base-url "https://likee.absolab.xyz"
       - uses: peaceiris/actions-gh-pages@v3

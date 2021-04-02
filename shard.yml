@@ -4,7 +4,7 @@ version: 0.2.2
 authors:
   - kandayo <kdy@absolab.xyz>
 
-crystal: 0.36.1
+crystal: ">= 0.36.0"
 
 development_dependencies:
   ameba:
